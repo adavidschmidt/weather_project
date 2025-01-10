@@ -7,7 +7,7 @@ config.read('config.ini')
 
 API_KEY = config['api']['key']
 
-def getLonLat(city, state, country):
+def api_get_lon_lat(city, state, country):
     url_base = 'http://api.openweathermap.org/geo/1.0/direct'
     
     url_full = f'{url_base}?q={city},{state},{country}&limit=1&appid={API_KEY}'
@@ -21,7 +21,7 @@ def getLonLat(city, state, country):
             lon = entry['lon']
             return lat, lon
 
-def getWeather(lat, lon):
+def api_get_weather(lat, lon):
     
     url_base = 'https://api.openweathermap.org/data/2.5/weather'
     
@@ -41,11 +41,3 @@ def getWeather(lat, lon):
         return None
     
     
-data = getLonLat('Clayton', 'NC', 'USA')
-
-lat, lon = data
-
-weather = getWeather(lat, lon)
-
-if weather:
-    print(weather)
