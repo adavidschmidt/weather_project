@@ -49,9 +49,9 @@ def psql_add_weather(lat, lon, location_id):
     data = weather_api.api_get_weather(lat, lon)
     est = pytz.timezone('US/Eastern')
     now = datetime.now(est)
-    temp, feel, pressure, humidity = data
-    cur.execute('insert into weather(temperature_fahrenheit, feels_like_fahrenheit, pressure, humidity, location_id, datetime) values (%s, %s, %s, %s, %s, %s)',
-                (temp, feel, pressure, humidity, location_id, now))
+    temp, feel, pressure, humidity, min, max = data
+    cur.execute('insert into weather(temperature_fahrenheit, feels_like_fahrenheit, pressure, humidity, location_id, datetime, min_temp, max_temp) values (%s, %s, %s, %s, %s, %s, %s, %s)',
+                (temp, feel, pressure, humidity, location_id, now, min, max))
     conn.commit()
     
         
