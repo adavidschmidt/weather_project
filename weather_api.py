@@ -35,7 +35,9 @@ def api_get_weather(lat, lon):
         feels_like = data['main']['feels_like']
         pressure = data['main']['pressure']
         humidity = data['main']['humidity']
-        return temp, feels_like, pressure, humidity
+        min = data['main']['temp_min']
+        max = data['main']['temp_max']
+        return temp, feels_like, pressure, humidity, min, max
     else:
         print(f'Error: {response.status_code}')
         return None
