@@ -2,4 +2,4 @@ config.ini
 venv/
 __pycache__/
 tempCodeRunnerFile.py
-*.txt
+todo.txt
