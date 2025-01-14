@@ -54,7 +54,4 @@ def psql_add_weather(lat, lon, location_id):
                 (temp, feel, pressure, humidity, location_id, now, min, max))
     conn.commit()
     
-        
-lat, lon, id = psql_get_lat_lon('clayton', 'nc', 'usa')
-
-psql_add_weather(lat, lon, id)
+ 
