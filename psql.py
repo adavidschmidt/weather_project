@@ -4,7 +4,6 @@ import weather_api
 import pytz
 from datetime import datetime
 
-
 config = configparser.ConfigParser()
 config.read('config.ini')
 
@@ -54,4 +53,3 @@ def psql_add_weather(lat, lon, location_id):
                 (temp, feel, pressure, humidity, location_id, now, min, max))
     conn.commit()
     
- 
